@@ -30,7 +30,6 @@ app/code/community/Creativestyle/CheckoutByAmazon/Block/Checkout.php app/code/co
 app/code/community/Creativestyle/CheckoutByAmazon/Block/Link.php app/code/community/Creativestyle/CheckoutByAmazon/Block/Link.php
 app/code/community/Creativestyle/CheckoutByAmazon/Block/Page/Html/Head.php app/code/community/Creativestyle/CheckoutByAmazon/Block/Page/Html/Head.php
 app/code/community/Creativestyle/CheckoutByAmazon/Block/Payment/Info.php app/code/community/Creativestyle/CheckoutByAmazon/Block/Payment/Info.php
-app/code/community/Creativestyle/CheckoutByAmazon/CHANGELOG app/code/community/Creativestyle/CheckoutByAmazon/CHANGELOG
 app/code/community/Creativestyle/CheckoutByAmazon/controllers/Adminhtml/DebugController.php app/code/community/Creativestyle/CheckoutByAmazon/controllers/Adminhtml/DebugController.php
 app/code/community/Creativestyle/CheckoutByAmazon/controllers/Adminhtml/Logger/ApiController.php app/code/community/Creativestyle/CheckoutByAmazon/controllers/Adminhtml/Logger/ApiController.php
 app/code/community/Creativestyle/CheckoutByAmazon/controllers/Adminhtml/Logger/ExceptionsController.php app/code/community/Creativestyle/CheckoutByAmazon/controllers/Adminhtml/Logger/ExceptionsController.php
