@@ -1,0 +1,94 @@
+.creativestyle-info {
+    border: 1px solid #cccccc;
+    background: #e7efef;
+    margin-bottom: 10px;
+    padding: 10px;
+    height: auto;
+}
+.creativestyle-info .creativestyle-logo {
+    float: right;
+    padding: 5px;
+}
+.creativestyle-info .creativestyle-command {
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    padding: 15px;
+    text-align: left;
+    margin: 10px 0;
+    font-weight: bold;
+}
+.creativestyle-info h3 {
+    color: #ea7601;
+}
+.creativestyle-info h3 small {
+    font-weight: normal;
+    font-size: 80%;
+    font-style: italic;
+}
+
+h3.checkout-by-amazon-header {
+    background: url('../images/checkout-by-amazon-header.png') no-repeat scroll 0 0 transparent;
+    height: 0;
+    overflow: hidden;
+    padding: 24px 0 0;
+    width: 155px;
+    margin-bottom: 5px;
+}
+
+ul.tabs a.checkout-by-amazon-section, ul.tabs a.checkout-by-amazon-section:hover {
+    background: url('../../images/tabs_span_bg.gif') repeat-x scroll 0 100% transparent;
+    border-bottom: medium none;
+    padding: 0.7em 0.5em 0.5em 1.5em;
+}
+
+ul.tabs a.checkout-by-amazon-section.active, ul.tabs a.checkout-by-amazon-section.active:hover {
+    background-color: #ffffff;
+}
+
+ul.tabs a.checkout-by-amazon-section span, ul.tabs a.checkout-by-amazon-section:hover span {
+    background: url('../images/checkout-by-amazon-section.png') no-repeat scroll 0 0 transparent;
+    width: 116px;
+    height: 0;
+    overflow: hidden;
+    padding: 18px 0 0;
+}
+
+/* XML prettifier */
+
+pre.lang-xml {
+    font-size: 13px;
+    line-height: 1.4em;
+    white-space: pre-wrap;
+    font-style: italic;
+    background-color: #000;
+    padding: 10px;
+}
+
+pre .str, code .str { color: #65B042; } /* string  - green */
+pre .kwd, code .kwd { color: #E28964; } /* keyword - dark pink */
+pre .com, code .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
+pre .typ, code .typ { color: #89bdff; } /* type - light blue */
+pre .lit, code .lit { color: #3387CC; } /* literal - blue */
+pre .pun, code .pun { color: #fff; } /* punctuation - white */
+pre .pln, code .pln { color: #fff; } /* plaintext - white */
+pre .tag, code .tag { color: #89bdff; } /* html/xml tag    - light blue */
+pre .atn, code .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
+pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
+pre .dec, code .dec { color: #3387CC; } /* decimal - blue */
+
+.amazon-passed {
+    background: url('../images/amazon-passed.png') center center no-repeat;
+    text-indent: -9999px;
+    display: block;
+}
+
+.amazon-failed {
+    background: url('../images/amazon-failed.png') center center no-repeat;
+    text-indent: -9999px;
+    display: block;
+}
+
+.simple-debug-section .amazon-passed,
+.simple-debug-section .amazon-failed {
+    width: 16px;
+}

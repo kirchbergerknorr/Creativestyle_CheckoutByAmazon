@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2014 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+-->
+<config>
+    <menu>
+        <creativestyle>
+            <title>creativestyle</title>
+            <sort_order>99</sort_order>
+            <children>
+                <checkoutbyamazon translate="title" module="checkoutbyamazon">
+                    <title>Checkout by Amazon</title>
+                    <sort_order>1</sort_order>
+                    <children>
+                        <settings translate="title">
+                            <title>Settings</title>
+                            <sort_order>900</sort_order>
+                            <action>adminhtml/system_config/edit/section/checkoutbyamazon</action>
+                            <resource>system/config/checkoutbyamazon</resource>
+                        </settings>
+                        <logger translate="title">
+                            <title>Log preview</title>
+                            <sort_order>100</sort_order>
+                            <children>
+                                <exceptions translate="title">
+                                    <title>Exceptions</title>
+                                    <sort_order>10</sort_order>
+                                    <action>checkoutbyamazon/adminhtml_logger_exceptions</action>
+                                </exceptions>
+                                <notifications translate="title">
+                                    <title>IOPN Notifications</title>
+                                    <sort_order>20</sort_order>
+                                    <action>checkoutbyamazon/adminhtml_logger_notifications</action>
+                                </notifications>
+                                <feeds translate="title">
+                                    <title>Feeds</title>
+                                    <sort_order>30</sort_order>
+                                    <action>checkoutbyamazon/adminhtml_logger_feeds</action>
+                                </feeds>
+                                <reports translate="title">
+                                    <title>Reports</title>
+                                    <sort_order>40</sort_order>
+                                    <action>checkoutbyamazon/adminhtml_logger_reports</action>
+                                </reports>
+                                <api translate="title">
+                                    <title>API Calls</title>
+                                    <sort_order>50</sort_order>
+                                    <action>checkoutbyamazon/adminhtml_logger_api</action>
+                                </api>
+                            </children>
+                        </logger>
+                        <debug translate="title">
+                            <title>Debug data</title>
+                            <sort_order>110</sort_order>
+                            <action>checkoutbyamazon/adminhtml_debug</action>
+                        </debug>
+                    </children>
+                </checkoutbyamazon>
+            </children>
+        </creativestyle>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <creativestyle>
+                        <children>
+                            <checkoutbyamazon translate="title" module="checkoutbyamazon">
+                                <title>Checkout by Amazon</title>
+                                <children>
+                                    <logger translate="title">
+                                        <title>Log preview</title>
+                                        <children>
+                                            <exceptions translate="title">
+                                                <title>Exceptions</title>
+                                            </exceptions>
+                                            <notifications translate="title">
+                                                <title>IOPN Notifications</title>
+                                            </notifications>
+                                            <feeds translate="title">
+                                                <title>Feeds</title>
+                                            </feeds>
+                                            <reports translate="title">
+                                                <title>Reports</title>
+                                            </reports>
+                                            <api translate="title">
+                                                <title>API Calls</title>
+                                            </api>
+                                        </children>
+                                    </logger>
+                                    <debug translate="title">
+                                        <title>Debug data</title>
+                                    </debug>
+                                </children>
+                            </checkoutbyamazon>
+                        </children>
+                    </creativestyle>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <checkoutbyamazon translate="title" module="checkoutbyamazon">
+                                        <title>Checkout by Amazon settings</title>
+                                    </checkoutbyamazon>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

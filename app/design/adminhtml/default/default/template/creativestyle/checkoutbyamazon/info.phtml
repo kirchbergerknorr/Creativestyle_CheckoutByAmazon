@@ -1,0 +1,29 @@
+<?php
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2014 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+?>
+<div class="creativestyle-info">
+    <a class="creativestyle-logo" href="http://www.creativestyle.de" target="_blank">
+        <img src="<?php echo $this->getSkinUrl('creativestyle/images/checkout-by-amazon-creativestyle-logo.png'); ?>" alt="creativestyle" />
+    </a>
+    <h3><?php echo $this->__('Checkout by Amazon'); ?><small> (v. <?php echo $this->getExtensionVersion(); ?>)</small></h3>
+    <p style="clear:both;"><?php echo $this->helper('checkoutbyamazon')->__('This extension integrates easily your Magento shop with Checkout by Amazon payment service.'); ?></p>
+    <p>--------------------------------------------------------<br />
+        <?php echo $this->helper('checkoutbyamazon')->__(
+            'Visit <a href="%s" target="_blank">%s</a> to get more information.',
+            $this->helper('checkoutbyamazon')->__('http://www.creativestyle.net/services/magento.html'),
+            $this->helper('checkoutbyamazon')->__('http://www.creativestyle.net/services/magento.html'));
+        ?>
+    </p>
+</div>

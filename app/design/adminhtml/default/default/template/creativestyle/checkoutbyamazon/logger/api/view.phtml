@@ -1,0 +1,81 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons">
+                <?php echo $this->getButtonsHtml() ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('API call details'); ?></h4>
+    </div>
+    <div class="box">
+        <table cellspacing="0" class="form-list">
+            <tbody>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Date'); ?></label></td>
+                    <td><strong><span id="order_status"><?php echo $this->getCreationTime(); ?></span></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('URL endpoint'); ?></label></td>
+                    <td><?php echo $this->getHost(); ?></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Action'); ?></label></td>
+                    <td><?php echo $this->getAction(); ?></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Request method'); ?></label></td>
+                    <td><?php echo $this->getRequestMethod(); ?></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Response code'); ?></label></td>
+                    <td><?php echo $this->getResponseCode(); ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($this->getHeaders()): ?>
+        <div class="entry-edit-head">
+            <h4><?php echo $this->__('Submitted headers'); ?></h4>
+        </div>
+        <div class="box">
+            <pre style="white-space:pre-wrap;"><?php echo $this->getHeaders(); ?></pre>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->getGetData()): ?>
+        <div class="entry-edit-head">
+            <h4><?php echo $this->__('Submitted GET data'); ?></h4>
+        </div>
+        <div class="box">
+            <pre style="white-space:pre-wrap;"><?php echo $this->getGetData(); ?></pre>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->getPostData()): ?>
+        <div class="entry-edit-head">
+            <h4><?php echo $this->__('Submitted POST data'); ?></h4>
+        </div>
+        <div class="box">
+            <pre style="white-space:pre-wrap;"><?php echo $this->getPostData(); ?></pre>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->getFileData()): ?>
+        <div class="entry-edit-head">
+            <h4><?php echo $this->__('Submitted FILE data'); ?></h4>
+        </div>
+        <div class="box">
+            <pre style="white-space:pre-wrap;"><?php echo $this->getFileData(); ?></pre>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->getResponse()): ?>
+        <div class="entry-edit-head">
+            <h4><?php echo $this->__('Response'); ?></h4>
+        </div>
+        <div class="box">
+            <pre style="white-space:pre-wrap;"><?php echo $this->getResponse(); ?></pre>
+        </div>
+    <?php endif; ?>
+</div>

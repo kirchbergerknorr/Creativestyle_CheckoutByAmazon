@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2014 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+-->
+<config>
+    <tabs>
+        <creativestyle translate="label" module="checkoutbyamazon">
+            <label><![CDATA[<div id="creative-system-config">creativestyle Extensions</div>]]></label>
+            <sort_order>99</sort_order>
+        </creativestyle>
+    </tabs>
+    <sections>
+        <checkoutbyamazon translate="label" module="checkoutbyamazon">
+            <label>Checkout by Amazon</label>
+            <comment>This extension was developed by creativestyle GmbH</comment>
+            <class>checkout-by-amazon-section</class>
+            <header_css>checkout-by-amazon-header</header_css>
+            <tab>creativestyle</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <plugin_info>
+                    <frontend_model>checkoutbyamazon/adminhtml_info</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </plugin_info>
+                <signup>
+                    <frontend_model>checkoutbyamazon/adminhtml_signup</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <info_active>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </info_active>
+                    </fields>
+                </signup>
+                <general translate="label">
+                    <label>General Options</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enable Checkout by Amazon</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <iopn_active translate="label comment">
+                            <label>Enable Instant Order Processing Notifications</label>
+                            <comment>This feature requires valid SSL certificate to be installed on this server. Pay attention that the SSL certificate must be issued by a trusted Certificate Authority, self-signed certificates are not permitted.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </iopn_active>
+                        <marketplace translate="label">
+                            <label>Marketplace</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>checkoutbyamazon/lookup_marketplace</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </marketplace>
+                        <email_placeholder translate="label comment">
+                            <label>Email placeholder</label>
+                            <comment>Enter an email address which will be temporary used for new orders placed using Checkout by Amazon. If none entered, General Contact email from Magento settings will be used.</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-email</validate>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </email_placeholder>
+                        <default_prefix translate="label comment">
+                            <label>Default customer prefix</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>checkoutbyamazon/lookup_prefix</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </default_prefix>
+                        <merchant_id translate="label">
+                            <label>Merchant ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </merchant_id>
+                        <access_key translate="label">
+                            <label>Access Key ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </access_key>
+                        <secret_key translate="label">
+                            <label>Secret Access Key</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </secret_key>
+                        <new_order_status translate="label">
+                            <label>Order status on authorization</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_processing</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </new_order_status>
+                        <order_confirmation translate="label">
+                            <label>Send order confirmation</label>
+                            <comment>Select whether an email confirmation for newly placed orders shall be sent by the shop</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </order_confirmation>
+                        <reuse_amazon_session translate="label">
+                            <label>Amazon session re-use</label>
+                            <comment>IMPORTANT! This is an experimental feature, do not use it in any production environment</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>900</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><active>1</active></depends>
+                        </reuse_amazon_session>
+                        <sallowspecific translate="label">
+                            <label>Applicable countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>91</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <active>1</active>
+                                <sallowspecific>1</sallowspecific>
+                            </depends>
+                        </specificcountry>
+                        <cut_sku translate="label">
+                            <label>Cut product SKUs to the length</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </cut_sku>
+                        <sandbox_mode translate="label">
+                            <label>Run in sandbox mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>990</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </sandbox_mode>
+                        <allow_ips>
+                            <label>Allowed IPs (comma separated)</label>
+                            <comment>Leave empty for access from any location</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>999</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </allow_ips>
+                    </fields>
+                </general>
+                <api translate="label">
+                    <label>Amazon MWS Settings</label>
+                    <sort_order>140</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <order_update translate="label comment">
+                            <label>Enable order update via Amazon MWS</label>
+                            <comment>Note that Magento cron must be launched to make it working</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </order_update>
+                        <use_token>
+                            <label>Enable iterative report downloads</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><order_update>1</order_update></depends>
+                        </use_token>
+                        <report_schedule>
+                            <label>Processing schedule</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>checkoutbyamazon/lookup_schedule</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><order_update>1</order_update></depends>
+                        </report_schedule>
+                        <feed_batching translate="label comment">
+                            <label>Send feeds in batch mode</label>
+                            <comment>Note that Magento cron must be launched to make it working</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </feed_batching>
+                        <feed_schedule>
+                            <label>Feed sending schedule</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>checkoutbyamazon/lookup_schedule</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><feed_batching>1</feed_batching></depends>
+                        </feed_schedule>
+                        <last_feed_sending>
+                            <label>Last feeds sending date</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>997</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </last_feed_sending>
+                        <last_order_processing>
+                            <label>Last MWS orders processing date</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>998</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </last_order_processing>
+                        <last_report_processing>
+                            <label>Last MWS reports processing date</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>999</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </last_report_processing>
+                    </fields>
+                </api>
+                <design translate="label">
+                    <label>Appearance Settings</label>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <button_size translate="label">
+                            <label>"Checkout by Amazon" button size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>checkoutbyamazon/lookup_design_button_size</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_size>
+                        <button_color translate="label">
+                            <label>"Checkout by Amazon" button color</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>checkoutbyamazon/lookup_design_button_color</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_color>
+                        <button_background translate="label">
+                            <label>"Checkout by Amazon" button background</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>checkoutbyamazon/lookup_design_button_background</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_background>
+                        <address_width translate="label comment">
+                            <label>Address widget width</label>
+                            <comment>Enter a value between 150 and 600 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-150-600</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </address_width>
+                        <address_height translate="label comment">
+                            <label>Address widget height</label>
+                            <comment>Enter a value between 180 and 400 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-180-400</validate>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </address_height>
+                        <payment_width translate="label comment">
+                            <label>Payment widget width</label>
+                            <comment>Enter a value between 150 and 600 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-150-600</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </payment_width>
+                        <payment_height translate="label comment">
+                            <label>Payment widget height</label>
+                            <comment>Enter a value between 180 and 400 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-180-400</validate>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </payment_height>
+                        <progress_width translate="label comment">
+                            <label>Checkout progress widgets width</label>
+                            <comment>Enter a value between 150 and 600 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-150-600</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </progress_width>
+                        <progress_height translate="label comment">
+                            <label>Checkout progress widgets height</label>
+                            <comment>Enter a value between 180 and 400 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-180-400</validate>
+                            <sort_order>41</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </progress_height>
+                        <review_width translate="label comment">
+                            <label>Order summary widget width</label>
+                            <comment>Enter a value between 150 and 600 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-150-600</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </review_width>
+                        <review_height translate="label comment">
+                            <label>Order summary widget height</label>
+                            <comment>Enter a value between 180 and 400 pixels</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits-range digits-range-180-400</validate>
+                            <sort_order>51</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </review_height>
+                    </fields>
+                </design>
+                <logger translate="label">
+                    <label>Logger</label>
+                    <sort_order>900</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enable logger</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <clean_after_day translate="label">
+                            <label>Save Log, Days</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><active>1</active></depends>
+                        </clean_after_day>
+                    </fields>
+                </logger>
+            </groups>
+        </checkoutbyamazon>
+    </sections>
+</config>

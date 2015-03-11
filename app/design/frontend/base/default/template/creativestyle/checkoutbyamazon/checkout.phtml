@@ -1,0 +1,53 @@
+<?php
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2013 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Checkout by Amazon'); ?></h1>
+</div>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('creativestyle/checkoutbyamazon.js') ?>"></script>
+<ol id="checkoutSteps" class="opc">
+<?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
+<?php $i++ ?>
+    <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow']) ? ' allow' : ''; ?>">
+        <div class="step-title">
+            <span class="number"><?php echo $i ?></span>
+            <h2><?php echo $_stepInfo['label'] ?></h2>
+            <a href="#"><?php echo $this->helper('checkout')->__('Edit') ?></a>
+        </div>
+        <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
+            <?php echo $this->getChildHtml($_stepId) ?>
+        </div>
+    </li>
+<?php endforeach ?>
+</ol>
+<script type="text/javascript">//<![CDATA[
+    var accordion, checkout;
+    document.observe('dom:loaded', function() {
+        accordion = new Accordion('checkoutSteps', '.step-title', true);
+        <?php if ($this->getActiveStep()): ?>
+        accordion.openSection('opc-<?php echo $this->getActiveStep(); ?>');
+        <?php endif; ?>
+        checkout = new CheckoutByAmazon(accordion, '<?php echo $this->getPurchaseContractId(); ?>', {
+            saveShipping: '<?php echo $this->getUrl('checkoutbyamazon/checkout/saveShipping'); ?>',
+            saveShippingMethod: '<?php echo $this->getUrl('checkoutbyamazon/checkout/saveShippingMethod'); ?>',
+            savePayment: '<?php echo $this->getUrl('checkoutbyamazon/checkout/savePayment'); ?>',
+            saveOrder: '<?php echo $this->getUrl('checkoutbyamazon/checkout/saveOrder'); ?>',
+            success: '<?php echo $this->getUrl('checkoutbyamazon/checkout/success'); ?>',
+            progress: '<?php echo $this->getUrl('checkoutbyamazon/checkout/progress'); ?>',
+            failure: '<?php echo $this->getUrl('checkout/cart'); ?>'
+        });
+    });
+//]]></script>

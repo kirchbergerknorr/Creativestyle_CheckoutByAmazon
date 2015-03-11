@@ -1,0 +1,15 @@
+{
+    "name": "kirchbergerknorr/Creativestyle_CheckoutByAmazon",
+    "description": "Creativestyle Checkout by Amazon",
+    "keywords": ["magento", "amazon"],
+    "type": "magento-module",
+    "license":"OSL-3.0",
+    "authors": [
+        {
+            "name": "Benedikt Volkmer",
+            "email": "bv@kirchbergerknorr.de"
+        }
+    ],
+    "require": {
+    }
+}

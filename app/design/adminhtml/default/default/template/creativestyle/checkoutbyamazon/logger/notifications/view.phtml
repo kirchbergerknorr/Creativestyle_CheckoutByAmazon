@@ -1,0 +1,53 @@
+<?php
+    $notificationContent = $this->getFormattedNotificationContent();
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons">
+                <?php echo $this->getButtonsHtml() ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Notification details'); ?></h4>
+    </div>
+    <div class="box">
+        <table cellspacing="0" class="form-list">
+            <tbody>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Date'); ?></label></td>
+                    <td><strong><?php echo $this->getCreationTime(); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('NotificationType'); ?></label></td>
+                    <td><strong><?php echo $this->getNotificationType(); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('UUID'); ?></label></td>
+                    <td><strong><?php echo $this->getUuid(); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Processing result'); ?></label></td>
+                    <td><strong><?php echo $this->getProcessingResult(); ?></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Notification XML content -->
+    <div id="notification_data_code" style="display:none;">
+        <?php if ($notificationContent): ?>
+            <pre class="prettyprint lang-xml"><?php echo $notificationContent; ?></pre>
+        <?php endif; ?>
+    </div>
+</div>
+<script type="text/javascript">//<![CDATA[
+
+    document.observe('dom:loaded', function() {
+        prettyPrint();
+    });
+
+//]]></script>

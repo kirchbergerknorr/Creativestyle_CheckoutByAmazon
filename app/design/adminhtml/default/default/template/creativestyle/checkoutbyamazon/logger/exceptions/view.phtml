@@ -1,0 +1,47 @@
+<?php
+    $stackTrace = $this->getFormattedStackTrace();
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons">
+                <?php echo $this->getButtonsHtml() ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Exception details'); ?></h4>
+    </div>
+    <div class="box">
+        <table cellspacing="0" class="form-list">
+            <tbody>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Date'); ?></label></td>
+                    <td><strong><span id="order_status"><?php echo $this->getCreationTime(); ?></span></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Error message'); ?></label></td>
+                    <td><?php echo $this->getErrorMessage(); ?></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Area'); ?></label></td>
+                    <td><?php echo $this->getErrorArea(); ?></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Error code'); ?></label></td>
+                    <td><?php echo $this->getErrorCode(); ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Stack trace -->
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Exception stack trace'); ?></h4>
+    </div>
+    <div class="box">
+        <pre style="white-space:pre-wrap;"><?php echo $stackTrace; ?></pre>
+    </div>
+</div>

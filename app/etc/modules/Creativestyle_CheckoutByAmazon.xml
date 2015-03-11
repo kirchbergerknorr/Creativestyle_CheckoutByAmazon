@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2014 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+-->
+<config>
+    <modules>
+        <Creativestyle_CheckoutByAmazon>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Catalog/>
+                <Mage_Checkout/>
+                <Mage_Directory/>
+                <Mage_Eav/>
+                <Mage_Payment/>
+                <Mage_Sales/>
+            </depends>
+        </Creativestyle_CheckoutByAmazon>
+    </modules>
+</config>

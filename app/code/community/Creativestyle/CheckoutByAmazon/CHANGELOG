@@ -1,0 +1,150 @@
+*******************************************************************************
+******************************** RELEASE 1.6.1 ********************************
+*******************************************************************************
+Release date: 2014/10/02
+-> FIXED: JS conflicts when jQuery is used (compatibility with Magento 1.9)
+-> REMOVED: Creativestyle_Core module dependencies
+-> REMOVED: log entries - orders matching feature
+-> REMOVED: processing checkout in the overlay (lightbox) feature
+
+
+*******************************************************************************
+******************************** RELEASE 1.5.4 ********************************
+*******************************************************************************
+Release date: 2014/02/18
+-> FIXED: no order with such Amazon ID issue when processing Amazon reports
+-> ADDED: cURL error handling for feeds upload
+
+*******************************************************************************
+******************************** RELEASE 1.5.2 ********************************
+*******************************************************************************
+Release date: 2013/12/10
+-> FIXED: routine of checking availability of Amazon payment methods for Magento 1.8
+-> ADDED: Amazon payment methods grouping
+
+*******************************************************************************
+******************************** RELEASE 1.5.0 ********************************
+*******************************************************************************
+Release date: 2013/06/12
+-> FIXED: issue with Amazon cronjobs executing and feeds sending for multistore installations
+-> FIXED: refunds issue for multistore installations
+-> FIXED: validation error for the shipment feed
+-> ADDED: feed batching
+-> ADDED: passing tracking info in fulfillment feed
+-> ADDED: Checkout by Amazon button in the 1st step of onepage checkout
+-> ADDED: configurable sending of order confirmation
+-> ADDED: beta support for US market
+
+*******************************************************************************
+******************************** RELEASE 1.4.2 ********************************
+*******************************************************************************
+Release date: 2013/04/17
+-> FIXED: order of delivery details in the shipment feed
+
+*******************************************************************************
+******************************** RELEASE 1.4.1 ********************************
+*******************************************************************************
+Release date: 2013/03/05
+-> FIXED: 400 Bad Request response issue when submitting acknowledge feed
+-> FIXED: null promotionId for discounts with no coupon issue
+-> FIXED: redundant tax data in refund feed issue
+-> FIXED: issue with order state when authorized by Amazon
+-> FIXED: double load of Amazon's PaymentWidgets.js issue
+-> FIXED: transmitting products with 0.00 price issue
+-> ADDED: IP-based access for Checkout by Amazon
+-> ADDED: validating MerchantFulfillmentID in fulfillment feed
+-> ADDED: partial multistore support for MWS (TBD: refunds)
+
+*******************************************************************************
+******************************** RELEASE 1.4.0 ********************************
+*******************************************************************************
+Release date: 2012/10/16 (rev. 2140)
+-> FIXED: broken same-origin policy in the cart (HTTPS XHR calls from HTTP page)
+-> MODIFIED: model classes accordingly to Amazon library changes
+-> ADDED: extension debug info generator to Magento backend
+-> ADDED: exception & event (IOPN, Reports API, Feeds API) logger
+-> ADDED: processing billing address from OrderReadyToShip notification (IOPN)
+-> ADDED: cutting SKU option
+-> ADDED: "Checkout by Amazon" button to the side cart box
+-> ADDED: Amazon Payments badge to the default page layout
+-> ADDED: extension version tracking with API calls
+
+*******************************************************************************
+******************************** RELEASE 1.3.0 ********************************
+*******************************************************************************
+Release date: 2012/08/01 (rev. 1562)
+-> FIXED: issues with order refunding
+-> FIXED: new IOPN schema applied
+-> ADDED: checkout can be displayed and processed in overlay on the cart page
+-> ADDED: improved order processing flow in early phases (added new status)
+-> ADDED: issuing an invoice for billed orders
+-> ADDED: Google Analytics step-by-step tracking
+-> ADDED: Amazon seller account signup link in Magento admin
+
+*******************************************************************************
+******************************** RELEASE 1.2.3.1 ******************************
+*******************************************************************************
+Release date: 2012/06/22
+-> FIXED: set default prefix for Amazon Checkout orders when prefix is required
+-> ADDED: SKU cutting (non-configurable feature)
+
+*******************************************************************************
+******************************** RELEASE 1.2.3 ********************************
+*******************************************************************************
+Release date: 2012/06/04 (rev. 1248)
+-> FIXED: missing CSS file in Magento Connect package
+
+*******************************************************************************
+******************************** RELEASE 1.2.2 ********************************
+*******************************************************************************
+Release date: 2012/05/14 (rev. 1246)
+-> FIXED: improved region importing for customer address
+
+*******************************************************************************
+******************************** RELEASE 1.2.1 ********************************
+*******************************************************************************
+Release date: 2012/04/26 (rev. 1243)
+-> FIXED: SimpleXML elements typecasting to string when updating order addresses via MWS
+-> ADDED: helper method to generate Checkout by Amazon button
+
+*******************************************************************************
+******************************** RELEASE 1.2.0 ********************************
+*******************************************************************************
+Release date: 2012/04/20 (rev. 1187)
+-> ADDED: Amazon MWS Order and Reports API processing for order data update
+
+*******************************************************************************
+******************************** RELEASE 1.1.5 ********************************
+*******************************************************************************
+Release date: 2012/04/03 (rev. 1070)
+-> FIXED: products with custom options (added more than once to single order) are not exported properly
+-> FIXED: bundled products are not exported properly
+-> ADDED: checking if GetPurchaseContract returns street and saving it when order is placed
+
+*******************************************************************************
+******************************** RELEASE 1.1.4 ********************************
+*******************************************************************************
+Release date: 2012/04/03 (rev. 1058)
+-> ADDED: country availability settings in Magento admin
+-> ADDED: country validation in the 1st step of Checkout by Amazon
+-> FIXED: IOPNs handling issues (abandoned event - observer mechanism)
+-> FIXED: checkout issues when customer is logged onto his Magento account
+
+*******************************************************************************
+******************************** RELEASE 1.1.3 ********************************
+*******************************************************************************
+Release date: 2012/03/27 (rev. 897)
+-> FIXED: price rounding issue in SetPurchaseItems request
+-> MODIFIED: passing SKU (instead of EAN passed so far) as SKU field in SetPurchaseItems request
+
+*******************************************************************************
+******************************** RELEASE 1.1.2 ********************************
+*******************************************************************************
+Release date: 2012/03/26
+-> FIXED: removed redundant jQuery.noConflict() call in Checkout by Amazon templates
+
+*******************************************************************************
+******************************** RELEASE 1.1.1 ********************************
+*******************************************************************************
+Release date: 2012/03/19
+-> FIXED: 'marketplace' typo in Creativestyle_CheckoutByAmazon_Block_Abstract::_getMarketplace() method

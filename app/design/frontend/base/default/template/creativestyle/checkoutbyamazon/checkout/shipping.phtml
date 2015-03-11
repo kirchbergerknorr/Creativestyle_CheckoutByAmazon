@@ -1,0 +1,38 @@
+<?php
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2013 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+?>
+<div id="AmazonAddressWidget"></div>
+<script type="text/javascript">//<![CDATA[
+    new CBA.Widgets.AddressWidget({
+        merchantId: '<?php echo $this->getMerchantId(); ?>',
+        displayMode: 'Edit',
+<?php if ($this->getPurchaseContractId()): ?>
+        purchaseContractId: '<?php echo $this->getPurchaseContractId(); ?>',
+<?php endif; ?>
+        design: {size: {width: '<?php echo $this->getWidgetWidth(); ?>', height: '<?php echo $this->getWidgetHeight(); ?>'}},
+        onAddressSelect: function(widget) {
+            document.getElementById('shipping-continue').disabled = false;
+            document.getElementById('shipping-continue').style.opacity = '1';
+            document.getElementById('payment-continue').disabled = true;
+            document.getElementById('payment-continue').style.opacity = '.5';
+        }
+    }).render('AmazonAddressWidget');
+//]]></script>
+<div class="buttons-set" id="shipping-buttons-container">
+    <button id="shipping-continue" type="button" title="<?php echo $this->helper('checkout')->__('Continue') ?>" class="button" onclick="checkout.saveShipping()" disabled="disabled" style="opacity:.5;"><span><span><?php echo $this->helper('checkout')->__('Continue') ?></span></span></button>
+    <span class="please-wait" id="shipping-please-wait" style="display:none;">
+        <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->helper('checkout')->__('Loading next step...') ?>" title="<?php echo $this->helper('checkout')->__('Loading next step...') ?>" class="v-middle" /> <?php echo $this->helper('checkout')->__('Loading next step...') ?>
+    </span>
+</div>

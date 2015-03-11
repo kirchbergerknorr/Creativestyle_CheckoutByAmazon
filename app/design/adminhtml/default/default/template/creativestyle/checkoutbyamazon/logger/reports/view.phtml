@@ -1,0 +1,53 @@
+<?php
+    $reportContent = $this->getFormattedReportContent();
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons">
+                <?php echo $this->getButtonsHtml() ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Report details'); ?></h4>
+    </div>
+    <div class="box">
+        <table cellspacing="0" class="form-list">
+            <tbody>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Date'); ?></label></td>
+                    <td><strong><span id="order_status"><?php echo $this->getCreationTime(); ?></span></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Report request ID'); ?></label></td>
+                    <td><strong><?php echo $this->getReportRequestId(); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Report ID'); ?></label></td>
+                    <td><strong><?php echo $this->getReportId(); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Report type'); ?></label></td>
+                    <td><strong><?php echo $this->getReportType(); ?></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Report XML content -->
+    <div id="report_content_code" style="display:none;">
+        <?php if ($reportContent): ?>
+            <pre class="prettyprint lang-xml"><?php echo $reportContent; ?></pre>
+        <?php endif; ?>
+    </div>
+</div>
+<script type="text/javascript">//<![CDATA[
+
+    document.observe('dom:loaded', function() {
+        prettyPrint();
+    });
+
+//]]></script>

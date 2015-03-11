@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2014 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>creativestyle/css/checkoutbyamazon.css</stylesheet></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" template="creativestyle/checkoutbyamazon/init.phtml" />
+        </reference>
+    </default>
+    <checkoutbyamazon_adminhtml_debug_index>
+        <reference name="content">
+            <block type="checkoutbyamazon/adminhtml_debug" name="checkoutbyamazon_debug_info" />
+        </reference>
+    </checkoutbyamazon_adminhtml_debug_index>
+    <checkoutbyamazon_adminhtml_logger_exceptions_index>
+        <reference name="content">
+            <block type="checkoutbyamazon/adminhtml_logger_exceptions" name="amazon_exceptions" />
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_exceptions_index>
+    <checkoutbyamazon_adminhtml_logger_exceptions_view>
+        <reference name="head">
+            <action method="addJs"><script>creativestyle/prettify.js</script></action>
+            <action method="addJs"><script>creativestyle/modalbox.js</script></action>
+            <action method="addCss"><stylesheet>creativestyle/css/modalbox.css</stylesheet></action>
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_exceptions_view>
+    <checkoutbyamazon_adminhtml_logger_feeds_index>
+        <reference name="content">
+            <block type="checkoutbyamazon/adminhtml_logger_feeds" name="amazon_feeds" />
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_feeds_index>
+    <checkoutbyamazon_adminhtml_logger_feeds_view>
+        <reference name="head">
+            <action method="addJs"><script>creativestyle/prettify.js</script></action>
+            <action method="addJs"><script>creativestyle/modalbox.js</script></action>
+            <action method="addCss"><stylesheet>creativestyle/css/modalbox.css</stylesheet></action>
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_feeds_view>
+    <checkoutbyamazon_adminhtml_logger_notifications_index>
+        <reference name="content">
+            <block type="checkoutbyamazon/adminhtml_logger_notifications" name="amazon_notifications" />
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_notifications_index>
+    <checkoutbyamazon_adminhtml_logger_notifications_view>
+        <reference name="head">
+            <action method="addJs"><script>creativestyle/prettify.js</script></action>
+            <action method="addJs"><script>creativestyle/modalbox.js</script></action>
+            <action method="addCss"><stylesheet>creativestyle/css/modalbox.css</stylesheet></action>
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_notifications_view>
+    <checkoutbyamazon_adminhtml_logger_reports_index>
+        <reference name="content">
+            <block type="checkoutbyamazon/adminhtml_logger_reports" name="amazon_reports" />
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_reports_index>
+    <checkoutbyamazon_adminhtml_logger_reports_view>
+        <reference name="head">
+            <action method="addJs"><script>creativestyle/prettify.js</script></action>
+            <action method="addJs"><script>creativestyle/modalbox.js</script></action>
+            <action method="addCss"><stylesheet>creativestyle/css/modalbox.css</stylesheet></action>
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_reports_view>
+    <checkoutbyamazon_adminhtml_logger_api_index>
+        <reference name="content">
+            <block type="checkoutbyamazon/adminhtml_logger_api" name="amazon_api" />
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_api_index>
+    <checkoutbyamazon_adminhtml_logger_api_view>
+        <reference name="head">
+            <action method="addJs"><script>creativestyle/prettify.js</script></action>
+            <action method="addJs"><script>creativestyle/modalbox.js</script></action>
+            <action method="addCss"><stylesheet>creativestyle/css/modalbox.css</stylesheet></action>
+        </reference>
+    </checkoutbyamazon_adminhtml_logger_api_view>
+</layout>

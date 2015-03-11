@@ -1,0 +1,57 @@
+<?php
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2013 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+?>
+<div class="page-title">
+    <h1><?php echo $this->helper('checkout')->__('Your order has been received') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php if ($this->getAmazonOrderId()): ?>
+    <script type="text/javascript" src="<?php echo $this->getPaymentWidgetJsUrl(); ?>"></script>
+<?php endif; ?>
+<h2 class="sub-title"><?php echo $this->helper('checkout')->__('Thank you for your purchase!') ?></h2>
+<?php if ($this->getOrderId()): ?>
+    <p>
+        <?php if ($this->getCanViewOrder()): ?>
+            <?php echo $this->helper('checkout')->__('Your order # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?>
+            <?php if ($this->getAmazonOrderId()): ?> <?php echo $this->__('Your Amazon Payments ID is: %s', '<a href="#" onclick="orderDetailsWidget.open(\'230px\', \'554px\');">' . $this->getAmazonOrderId() . '</a>'); ?>.<?php endif; ?>
+        <?php else: ?>
+            <?php echo $this->helper('checkout')->__('Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?>
+            <?php if ($this->getAmazonOrderId()): ?> <?php echo $this->__('Your Amazon Payments ID is: %s', '<a href="#" onclick="orderDetailsWidget.open(\'230px\', \'554px\');">' . $this->getAmazonOrderId() . '</a>'); ?>.<?php endif; ?>
+        <?php endif; ?>
+    </p>
+    <p><?php echo $this->helper('checkout')->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
+    <?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()): ?>
+        <p>
+            <?php echo $this->helper('checkout')->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
+            <?php echo $this->getChildHtml(); ?>
+        </p>
+    <?php endif; ?>
+<?php else: ?>
+    <?php if ($this->getAmazonOrderId()): ?>
+        <p><?php echo $this->__('Your Amazon Payments ID is: %s', '<a href="#" onclick="orderDetailsWidget.open(\'230px\', \'554px\');return false;">' . $this->getAmazonOrderId() . '</a>'); ?>.</p>
+    <?php endif; ?>
+<?php endif; ?>
+<?php if ($this->getAmazonOrderId()): ?>
+    <script>//<![CDATA[
+        var orderDetailsWidget = new CBA.Widgets.OrderDetailsWidget({
+            merchantId: '<?php echo $this->getMerchantId(); ?>',
+            orderID: '<?php echo $this->getAmazonOrderId(); ?>',
+            design: {size: {width: '<?php echo $this->getWidgetWidth(); ?>', height: '<?php echo $this->getWidgetHeight(); ?>'}}
+        });
+    //]]></script>
+<?php endif; ?>
+<div class="buttons-set">
+    <button type="button" class="button" title="<?php echo $this->helper('checkout')->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->helper('checkout')->__('Continue Shopping') ?></span></span></button>
+</div>

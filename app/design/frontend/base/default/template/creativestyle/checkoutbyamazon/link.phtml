@@ -1,0 +1,46 @@
+<?php
+/**
+ * This file is part of The Official Amazon Payments Magento Extension
+ * (c) creativestyle GmbH <amazon@creativestyle.de>
+ * All rights reserved
+ *
+ * Reuse or modification of this source code is not allowed
+ * without written permission from creativestyle GmbH
+ *
+ * @category   Creativestyle
+ * @package    Creativestyle_CheckoutByAmazon
+ * @copyright  Copyright (c) 2011 - 2014 creativestyle GmbH (http://www.creativestyle.de)
+ * @author     Marek Zabrowarny / creativestyle GmbH <amazon@creativestyle.de>
+ */
+?>
+<div id="AmazonInlineWidget"><img src="<?php echo $this->getButtonWidgetUrl(); ?>" style="cursor: pointer;"/></div>
+<script type="text/javascript">//<![CDATA[
+
+    var authorization = false;
+
+    function processCheckout(purchaseContractId) {
+        var form = document.createElement('form');
+        var id = document.createElement('input');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', '<?php echo $this->getAmazonCheckoutUrl(); ?>');
+        id.setAttribute('type', 'hidden');
+        id.setAttribute('name', 'purchaseContractId');
+        id.setAttribute('value', purchaseContractId);
+        form.appendChild(id);
+        document.body.appendChild(form);
+        form.submit();
+        return;
+    }
+
+    new CBA.Widgets.InlineCheckoutWidget({
+        merchantId: '<?php echo $this->getMerchantId(); ?>',
+        onAuthorize: function(widget) {
+            if (!authorization) {
+                authorization = true;
+                processCheckout(widget.getPurchaseContractId());
+            }
+        }
+    }).render('AmazonInlineWidget');
+
+//]]></script>
+

@@ -1,0 +1,73 @@
+<?php
+    $feedContent = $this->getFormattedFeedContent();
+    $feedProcessingResult = $this->getFormattedProcessingResult();
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons">
+                <?php echo $this->getButtonsHtml() ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4><?php echo $this->__('Feed submission details'); ?></h4>
+    </div>
+    <div class="box">
+        <table cellspacing="0" class="form-list">
+            <tbody>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Date'); ?></label></td>
+                    <td><strong><span id="order_status"><?php echo $this->getCreationTime(); ?></span></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Feed submission ID'); ?></label></td>
+                    <td><strong><?php echo $this->getSubmissionId(); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Feed type'); ?></label></td>
+                    <td><strong><?php echo $this->getFeedType(); ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $this->__('Processing status'); ?></label></td>
+                    <td><strong><?php echo $this->getProcessingStatus(); ?></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Feed XML content -->
+    <div id="feed_content_code" style="display:none;">
+        <?php if ($feedContent): ?>
+            <pre class="prettyprint lang-xml"><?php echo $feedContent; ?></pre>
+        <?php endif; ?>
+    </div>
+    <!-- Result of feed processing -->
+    <div id="processing_result_code" style="display:none;">
+        <?php if ($feedProcessingResult): ?>
+            <pre class="prettyprint lang-xml"><?php echo $feedProcessingResult; ?></pre>
+        <?php endif; ?>
+    </div>
+</div>
+<script type="text/javascript">//<![CDATA[
+
+    function toggleCode(button, codeId, showButtonLabel, hideButtonLabel) {
+        var code = $(codeId);
+        if (button && code) {
+            if (code.visible()) {
+                button.down('span').update(showButtonLabel);
+                Effect.SlideUp(code);
+            } else {
+                button.down('span').update(hideButtonLabel);
+                Effect.SlideDown(code);
+            }
+        }
+    }
+
+    document.observe('dom:loaded', function() {
+        prettyPrint();
+    });
+
+//]]></script>

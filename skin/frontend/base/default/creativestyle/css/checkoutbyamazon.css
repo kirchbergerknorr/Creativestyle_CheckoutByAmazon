@@ -1,0 +1,33 @@
+#MB_frame .page-title,
+#MB_frame .page-title h1 { display: none; }
+
+.block-cart #AmazonInlineWidget {
+    padding: 5px 0;
+}
+
+.checkout-onepage-index #checkoutSteps #AmazonInlineWidget {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+
+#AmazonWalletWidget, #AmazonAddressWidget {
+    padding-bottom: 24px;
+}
+
+#ProgressAmazonAddressWidget, #ProgressAmazonWalletWidget {
+    margin: 0 0 6px;
+}
+
+.checkoutbyamazon-checkout-index .col-right {
+    width: 220px !important;
+}
+
+.checkoutbyamazon-checkout-index .col-main {
+    width: 670px !important;
+}
+
+.checkoutbyamazon-badge img {
+    margin: 0 auto;
+    display: block;
+}
